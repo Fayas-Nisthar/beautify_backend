@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class UserModel(models.Model):
+    name=models.CharField(max_length=50)
     email=models.CharField(max_length=100,unique=True)
     password=models.CharField(max_length=100)
 
@@ -26,8 +27,6 @@ class ShopModel(models.Model):
 
 class UserProfileModel(models.Model):
     user=models.OneToOneField(UserModel,on_delete=models.CASCADE)
-    first_name=models.CharField(max_length=100,null=True)
-    last_name=models.CharField(max_length=100,null=True)
     contact=models.CharField(max_length=12,null=True)
     pic=models.ImageField(upload_to="pro_pic",null=True,blank=True,default='pro_pic/avatar_2.png')
     def __str__(self):

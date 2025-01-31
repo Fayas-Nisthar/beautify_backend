@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+</head>
+<body>
+    <div class="">
+        <div class="banner">
+            <div class="banner-img">
+                <img src="{%static 'images/banner2.jpg'%}" alt="">
+            </div>
+            <div class="nav d-flex gap-4">
+              <a class="text-light link-underline link-underline-opacity-0" href="{%url 'register_shop'%}">Add Shop</a>
+                <!-- Button trigger modal -->
+    
+                <div type="button" data-bs-toggle="modal" data-bs-target="#signup">
+                    Sign up
+                </div>
+      
+                <!-- Modal -->
+                <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="title-signup">
+                            <span class="">Sign Up</span>
+                        </div>
+                        <form method="post" class="signup">
+                          {%csrf_token%}
+                            <div class="mb-4 form-floating">
+                                <input class="form-control" type="text" name="name" placeholder="Name">
+                                <label >Name</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="email" name="email" class="form-control"  placeholder="Email">
+                                <label >Email</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" name="password1" class="form-control"  placeholder="Password">
+                                <label>Password</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                              <input type="password" name="password2" class="form-control"  placeholder="Confirm Password">
+                              <label>Confirm Password</label>
+                          </div>
+                            <button type="submit" name="register" class="form-control btn ">Create account</button>
+                            <span>Already have an account? <a href="" type="button" data-bs-toggle="modal" data-bs-target="#login" class="link">Log in</a></span>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div type="button" data-bs-toggle="modal" data-bs-target="#login">
+                    Log in
+                </div>
+    
+                <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <div class="title-signup">
+                              <span class="">Log in</span>
+                          </div>
+                          <form method="post" class="signup">
+                            {%csrf_token%}
+                              <div class="form-floating mb-4">
+                                  <input type="email" name="username" class="form-control" placeholder="Email">
+                                  <label>Email</label>
+                              </div>
+                              <div class="form-floating mb-4">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <label>Password</label>
+                              </div>
+                              <button type="submit" name="login" class="form-control btn ">Log In</button>
+                              <span>New to Beautify? <a href="" type="button" data-bs-toggle="modal" data-bs-target="#signup" class="link">Create account</a></span>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="banner-logo">
+                <img src="{%static 'images/logo.png'%}" alt="">
+            </div>
+            <div class="banner-text">
+                <span>Find the best salon,spa and</span>
+                <span>beauty parlor across India </span>
+            </div>
+        </div>
+            <div class="select gap-4">
+                <div class="img-box border">
+                    <img src="{%static 'images/img 2.jpg'%}" alt="" >
+                    <span class="title">Book online</span>
+                    <span class="description">Book and reach at slot time</span>
+                </div>
+                <div class="img-box border">
+                    <img src="{%static 'images/img 1.jpg'%}" alt="">
+                    <span class="title">Spa</span>
+                    <span class="description">View best spa in the city's</span>
+                </div>
+            </div>
+    </div>
+
+</body>
+</html>

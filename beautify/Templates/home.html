@@ -1,0 +1,159 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+<div class="home">
+    <div class="service vw-100">
+      <div class="">
+        <div class="title mb-2">
+          <span class="">Find what service you want</span>
+        </div>
+        <div class="service-card">
+          <div class="service-img"></div>
+          <div class="service-name"></div>
+        </div>
+      </div>
+      
+    </div> 
+</div>
+    
+
+{%endblock%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zara's Beauty App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            margin-top: 0;
+        }
+        .service-cards, .salon-cards {
+            display: flex;
+            gap: 20px;
+        }
+        .card {
+            background-color: #e2e2e2;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+        }
+        .special-offer {
+            background-color: #ffdd57;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Hi, Zara Rehman</h1>
+            <p>6391 Elgin St. Cellino, Delaware 10299</p>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Appointments</a>
+            <a href="#">Services</a>
+            <a href="#">Salons</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="section">
+            <h2>Today's Appointment</h2>
+            <p>Morning, 9:00 AM at The Galleria Hair Salon</p>
+            <button>View Details</button>
+        </div>
+
+        <div class="section">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">Haircuts</div>
+                <div class="card">Makeup</div>
+                <div class="card">Manicure</div>
+            </div>
+            <button>View All Services</button>
+        </div>
+
+        <div class="section special-offer">
+            <h2>Special Offer</h2>
+            <p>40% Voucher for your next haircut service</p>
+            <button>Book Now</button>
+        </div>
+
+        <div class="section">
+            <h2>Nearest Salons</h2>
+            <div class="salon-cards">
+                <div class="card">
+                    <h3>Jawed Habib</h3>
+                    <p>6391 Elgin St. Cellino, Delaware</p>
+                    <p>5 km</p>
+                </div>
+            </div>
+            <button>View All Salons</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>6391 Elgin St. Cellino, Delaware 10299</p>
+        <div>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a>
+        </div>
+        <div>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>

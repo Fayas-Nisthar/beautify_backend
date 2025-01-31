@@ -1,52 +1,61 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.contrib.auth.hashers import make_password,check_password
 from django.db.models.signals import post_save
 
 # Create your models here.
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email, name, password=None, **extra_fields):
+        if not email:
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, name=name, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
-class UserModel(models.Model):
-    name=models.CharField(max_length=50)
-    email=models.CharField(max_length=100,unique=True)
-    password=models.CharField(max_length=100)
+    def create_superuser(self, email, name, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(email, name, password, **extra_fields)
 
-    def set_password(self, raw_password):
-        self.password = make_password(raw_password)
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(unique=True)
+    name = models.CharField(max_length=30)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
-    def check_password(self, raw_password):
-        return check_password(raw_password, self.password)
+    objects = CustomUserManager()
 
-class ShopModel(models.Model):
-    email=models.CharField(max_length=100,unique=True)
-    password=models.CharField(max_length=100)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
 
-    def set_password(self, raw_password):
-        self.password = make_password(raw_password)
-
-    def check_password(self, raw_password):
-        return check_password(raw_password, self.password)
+    def __str__(self):
+        return self.email
+    
+class ShopUser(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
 class UserProfileModel(models.Model):
-    user=models.OneToOneField(UserModel,on_delete=models.CASCADE)
+    user=models.OneToOneField(CustomUser,on_delete=models.CASCADE)
     contact=models.CharField(max_length=12,null=True)
     pic=models.ImageField(upload_to="pro_pic",null=True,blank=True,default='pro_pic/avatar_2.png')
     def __str__(self):
-        return self.first_name
+        return self.user.first_name
 
 class CategoryModel(models.Model):
+    image=models.ImageField(upload_to="cat_img",null=True,blank=True)
     type=models.CharField(max_length=100)
     def __str__(self):
         return self.type
 
 class ShopProfileModel(models.Model):
-    shop=models.OneToOneField(ShopModel,on_delete=models.CASCADE)
+    shop=models.OneToOneField(ShopUser,on_delete=models.CASCADE)
     name=models.CharField(max_length=20)
     contact=models.CharField(max_length=12)
     pic=models.ImageField(upload_to="shop_pic",default='shop_pic/shop.jpg')
-    activity_options=(
-        ("Available","Available"),
-        ("Offline","Offline"),
-    )
-    activity=models.CharField(max_length=30,choices=activity_options,default="Offline")
+    activity=models.BooleanField(default=False)
     location=models.CharField(max_length=200)
     gender_options=(
         ("Unisex","Unisex"),
@@ -54,7 +63,7 @@ class ShopProfileModel(models.Model):
         ("Women","Women"),
     )
     preferredGender=models.CharField(max_length=10,choices=gender_options)
-    category=models.ForeignKey(CategoryModel,on_delete=models.CASCADE)
+    category=models.ManyToManyField(CategoryModel)
     def __str__(self):
         return self.name
     
@@ -81,7 +90,3 @@ class Review(models.Model):
     def __str__(self):
         return self.rating
 
-def create_profile(sender,created,instance,**kwargs):
-    if created:
-        UserProfileModel.objects.create(user=instance)
-post_save.connect(create_profile,sender=UserModel)

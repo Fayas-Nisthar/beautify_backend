@@ -7,153 +7,78 @@
         <div class="title mb-2">
           <span class="">Find what service you want</span>
         </div>
-        <div class="service-card">
-          <div class="service-img"></div>
-          <div class="service-name"></div>
-        </div>
+        <div class="container mx-auto flex justify-center space-x-6 overflow-x-auto">
+            <div class="text-center">
+             <img alt="Dosa" class="rounded-full w-58 h-58 mx-auto" src="https://placehold.co/100x100"/>
+             <p class="mt-2 text-gray-700">Hair Cutting</p>
+            </div>
+            <div class="text-center">
+                <img alt="Dosa" class="rounded-full w-58 h-58 mx-auto" src="https://placehold.co/100x100"/>
+                <p class="mt-2 text-gray-700">Facial</p>
+            </div>
+            <div class="text-center">
+                <img alt="Dosa" class="rounded-full w-58 h-58 mx-auto" src="https://placehold.co/100x100"/>
+                <p class="mt-2 text-gray-700">Pedicure</p>
+            </div>
+           </div>
       </div>
       
     </div> 
+
+
+    <div class="container mx-auto mt-8 mb-4">
+        <h2 class="text-2xl font-semibold text-center mb-6">
+         Near Saloons And Spa's
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+         <!-- Restaurant Card 1 -->
+         <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="relative">
+           <img alt="Pai Brothers Fast Food" class="w-full h-48 object-cover" src="https://placehold.co/300x200"/>
+           <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">
+            Promoted
+           </span>
+           <span class="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+            40% OFF
+           </span>
+          </div>
+          <div class="p-4">
+           <h3 class="text-lg font-semibold">
+            Hairloom
+           </h3>
+           <div class="flex items-center mt-2">
+            <span class="text-green-600 font-semibold">
+             4.4
+            </span>
+            <i class="fas fa-star text-green-600 ml-1">
+            </i>
+           </div>
+          </div>
+         </div>
+         <!-- Restaurant Card 2 -->
+         <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="relative">
+           <img alt="Gokul Oottupura" class="w-full h-48 object-cover" src="https://placehold.co/300x200"/>
+           <span class="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+            30% OFF
+           </span>
+          </div>
+          <div class="p-4">
+           <h3 class="text-lg font-semibold">
+            Nayana Beauty Parlour
+           </h3>
+           <div class="flex items-center mt-2">
+            <span class="text-green-600 font-semibold">
+             4.2
+            </span>
+            <i class="fas fa-star text-green-600 ml-1">
+            </i>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
 </div>
-    
 
 {%endblock%}
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zara's Beauty App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .main-content {
-            padding: 20px;
-        }
-        .section {
-            background-color: #fff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .section h2 {
-            margin-top: 0;
-        }
-        .service-cards, .salon-cards {
-            display: flex;
-            gap: 20px;
-        }
-        .card {
-            background-color: #e2e2e2;
-            padding: 15px;
-            border-radius: 8px;
-            flex: 1;
-            text-align: center;
-        }
-        .special-offer {
-            background-color: #ffdd57;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div>
-            <h1>Hi, Zara Rehman</h1>
-            <p>6391 Elgin St. Cellino, Delaware 10299</p>
-        </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Appointments</a>
-            <a href="#">Services</a>
-            <a href="#">Salons</a>
-            <a href="#">Profile</a>
-        </nav>
-    </header>
-
-    <div class="main-content">
-        <div class="section">
-            <h2>Today's Appointment</h2>
-            <p>Morning, 9:00 AM at The Galleria Hair Salon</p>
-            <button>View Details</button>
-        </div>
-
-        <div class="section">
-            <h2>Our Services</h2>
-            <div class="service-cards">
-                <div class="card">Haircuts</div>
-                <div class="card">Makeup</div>
-                <div class="card">Manicure</div>
-            </div>
-            <button>View All Services</button>
-        </div>
-
-        <div class="section special-offer">
-            <h2>Special Offer</h2>
-            <p>40% Voucher for your next haircut service</p>
-            <button>Book Now</button>
-        </div>
-
-        <div class="section">
-            <h2>Nearest Salons</h2>
-            <div class="salon-cards">
-                <div class="card">
-                    <h3>Jawed Habib</h3>
-                    <p>6391 Elgin St. Cellino, Delaware</p>
-                    <p>5 km</p>
-                </div>
-            </div>
-            <button>View All Salons</button>
-        </div>
-    </div>
-
-    <footer>
-        <p>6391 Elgin St. Cellino, Delaware 10299</p>
-        <div>
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a>
-        </div>
-        <div>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-        </div>
-    </footer>
-</body>
-</html>

@@ -28,7 +28,7 @@
 
     <div class="container mx-auto mt-8 mb-4">
         <h2 class="text-2xl font-semibold text-center mb-6">
-         Near Saloons And Spa's
+         Near Shops
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
          <!-- Restaurant Card 1 -->
@@ -46,7 +46,10 @@
           <div class="p-4">
            <h3 class="text-lg font-semibold">
             
-            {{shop.name}}
+            {{shop.name}}<br>
+            {% for category in shop.category.all %}
+              <small>{{ category.type }}</small>
+            {% endfor %}
             
            </h3>
            <div class="flex items-center mt-2">

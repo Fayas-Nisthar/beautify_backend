@@ -86,6 +86,8 @@ class ShopProfileCreateView(View):
             shop_profile.save()
             form.save_m2m()
             return redirect('shop_home')
+        else:
+            print(form.errors)
         return render(request, 'shop_profile.html', {'form': form})
 
 class ShopProfileDetailsView(View):

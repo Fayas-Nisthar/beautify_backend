@@ -52,7 +52,7 @@ class CategoryModel(models.Model):
 
 class ShopProfileModel(models.Model):
     shop=models.OneToOneField(ShopUser,on_delete=models.CASCADE)
-    name=models.CharField(max_length=20)
+    name=models.CharField(max_length=50)
     contact=models.CharField(max_length=12)
     pic=models.ImageField(upload_to="shop_pic",default='shop_pic/shop.jpg')
     activity=models.BooleanField(default=False)
